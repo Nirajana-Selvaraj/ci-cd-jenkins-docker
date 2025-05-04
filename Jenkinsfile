@@ -8,8 +8,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-               git 'git credentialsId: 'github-credentials', url: 'https://github.com/Nirajana-Selvaraj/ci-cd-jenkins-docker.git''
-
+                git credentialsId: 'github-credentials', url: 'https://github.com/Nirajana-Selvaraj/ci-cd-jenkins-docker.git'
             }
         }
 
@@ -40,8 +39,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-               sh 'docker run -d -p 5000:5000 Nirajana-Selvaraj/ci-cd-app:latest'
-
+                sh "docker run -d -p 5000:5000 ${IMAGE_NAME}:latest"
             }
         }
     }
