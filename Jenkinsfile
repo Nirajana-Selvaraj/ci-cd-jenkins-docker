@@ -2,13 +2,14 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "yourdockerhubusername/ci-cd-app"
+        IMAGE_NAME = "nirajana23/ci-cd-app"
     }
 
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/yourusername/ci-cd-jenkins-docker.git'
+               git 'git credentialsId: 'github-credentials', url: 'https://github.com/Nirajana-Selvaraj/ci-cd-jenkins-docker.git''
+
             }
         }
 
@@ -39,7 +40,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 5000:5000 yourdockerhubusername/ci-cd-app:latest'
+               sh 'docker run -d -p 5000:5000 Nirajana-Selvaraj/ci-cd-app:latest'
+
             }
         }
     }
